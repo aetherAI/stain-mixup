@@ -23,11 +23,11 @@ def stain_mixup(
     """
     n_stains, *_ = source_stain_matrix.shape
     # Intensity pertubation
-    random_intensity = np.random.uniform(size=(1, 1, n_stains), *intensity_range)
+    random_intensity = np.random.uniform(size=(1, 1, n_stains), *intensity_range)  # (1, 1, n_stains)
     src_concentration = get_concentration(
         image,
         source_stain_matrix,
-    )
+    )  # (H, W, n_stains)
     augmented_concentration = src_concentration * random_intensity
 
     # Stain matrix intepolation
@@ -36,7 +36,7 @@ def stain_mixup(
         interpolated_stain_matrix,
         axis=-1,
         keepdims=True,
-    )
+    )  # (n_stains, 3)
 
     # Composite
     augmented_image = od_to_rgb(augmented_concentration @ interpolated_stain_matrix)
