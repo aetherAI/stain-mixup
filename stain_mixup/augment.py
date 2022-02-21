@@ -13,15 +13,15 @@ def stain_mixup(
 
     Args:
         image: Image array in RGB (H, W, 3)
-        source_stain_matrix: Stain matrix of source domain (N, 3)
-        target_stain_matrix: Stain matrix of target domain (N, 3)
+        source_stain_matrix: Stain matrix of source domain (n_stains, 3); n_stains = 2 for H&E
+        target_stain_matrix: Stain matrix of target domain (n_stains, 3); n_stains = 2 for H&E
         intensity_range: The lower bound and upper bound of concentration flucutation
         alpha: The weight of soruce_stain_matrix
 
     Return:
         Augmented image (H, W, 3)
     """
-    n_stains, *_ = source_stain_matrix.shape
+    n_stains, _ = source_stain_matrix.shape
     # Intensity pertubation
     random_intensity = np.random.uniform(size=(1, 1, n_stains), *intensity_range)  # (1, 1, n_stains)
     src_concentration = get_concentration(

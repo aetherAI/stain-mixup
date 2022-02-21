@@ -61,7 +61,9 @@ def get_stain_matrix(
     ).T  # (N, 3)
 
     # Assure H on first row, E on second row
-    if stain_matrix[0, 0] < stain_matrix[1, 0]:
+    # (NOTE) Only consider H&E in this case.
+    # If the numbers of stain is not 2 (ex: H&E), re-alignment is needed.
+    if len(stain_matrix) == 2 and stain_matrix[0, 0] < stain_matrix[1, 0]:
         stain_matrix = stain_matrix[[1, 0], :]
 
     stain_matrix /= np.linalg.norm(stain_matrix, axis=1)[:, None]
