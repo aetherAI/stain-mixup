@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "stain_mixup"
+version = "0.1.0"
+description = "Stain Mixup for Histopathological Images"
+authors = [
+  "aetherAI <affiliation.ml@aetherai.com>"
+]
+
+[tool.poetry.dependencies]
+python = "3.7"
+numpy = "^1.20"
+opencv-python = "*"
+spams = "*"
+
+[tool.poetry.dev-dependencies]
+flake8 = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

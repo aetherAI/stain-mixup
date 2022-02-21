@@ -1,5 +1,5 @@
 import numpy as np
-from utils import get_concentration, od_to_rgb
+from .utils import get_concentration, od_to_rgb
 
 
 def stain_mixup(
