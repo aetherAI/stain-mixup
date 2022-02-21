@@ -2,7 +2,7 @@
 
 This repository provide the core idea of [Stain Mix-Up: Domanin Generalization for Histopathology Images](https://link.springer.com/chapter/10.1007/978-3-030-87199-4_11) as an image augmentation technique.  
 
-To address the issue of unseen color domain generalization in histopathological images, the **stain mix-up** interpolates stain matrices between soruce and target domain to generate augmented images during training time for model generalization.
+To address the issue of unseen color domain generalization in histopathological images, the **stain mix-up** generate a pseudo stain matrix by interpolating stain matrices between soruce and target domain. Hence, images augmented by reverting the source image concentration and the interploated stain matrix can increase variability of training data without shape/detail distortion, and thus increasing model robustness.
 
 ## Publication
 Chang, J.-R., Wu, M.-S., Yu, W.-H., Chen, C.-C., Yang, C.-K., Lin, Y.-Y., & Yeh, C.-Y. (2021). Stain mix-up: Unsupervised domain generalization for histopathology images. Medical Image Computing and Computer Assisted Intervention – MICCAI 2021, 117–126. https://doi.org/10.1007/978-3-030-87199-4_11
