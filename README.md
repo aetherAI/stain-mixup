@@ -23,6 +23,11 @@ $ cd stain_mixup
 $ pip install .
 ```
 
+***NOTE*** The spams might have other dependencies.
+```bash
+sudo apt install liblapack-dev libblas-dev
+```
+
 ## Usage
 1. Get stain matrix.
 You can derive your stain matrix by different methods such as Vahadane or Macenko.
