@@ -19,9 +19,8 @@ def get_foreground(image: np.ndarray, luminance_threshold: float = 0.8):
 
 
 def rgb_to_od(image):
-    #od = -np.log(np.maximum(image.astype(np.float32), 1.0) / 255. + 1e-8
     od = -np.log(np.maximum(image.astype(np.float32), 1.0) / 255)
-    return np.clip(od, 0, od.max())
+    return np.maximum(od, 0)
 
 
 def od_to_rgb(od):
